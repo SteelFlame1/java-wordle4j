@@ -60,7 +60,7 @@ public class Wordle {
                     break;
                 }
                 attempts++;
-            } catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println("Ошибка хода: " + e.getMessage());
                 continue;
             }

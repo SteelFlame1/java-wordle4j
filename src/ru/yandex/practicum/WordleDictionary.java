@@ -16,7 +16,7 @@ public class WordleDictionary {
     private final Set<String> wordSet;
 
     public WordleDictionary(List<String> words) {
-        if (words == null || words.isEmpty()){
+        if (words == null || words.isEmpty()) {
             throw new IllegalArgumentException("Словарь не может быть пустым или null");
         }
 
@@ -33,8 +33,9 @@ public class WordleDictionary {
         int index = random.nextInt(words.size());
         return words.get(index);
     }
-    public boolean isValidWord(String word){
-        if(word == null) {
+
+    public boolean isValidWord(String word) {
+        if (word == null) {
             return false;
         }
         return wordSet.contains(word.toLowerCase());

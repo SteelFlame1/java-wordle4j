@@ -23,7 +23,7 @@ public class WordleDictionaryLoader {
         List<String> words = new ArrayList<>();
         String line;
 
-        try (BufferedReader br = Files.newBufferedReader(Paths.get(filename), StandardCharsets.UTF_8) ) {
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(filename), StandardCharsets.UTF_8)) {
             while ((line = br.readLine()) != null) {
                 if (line.length() == wordLength && line.matches("[а-яёА-ЯЁ]+")) {
                     words.add(line.toLowerCase().replace("ё", "е").replace("Ё", "Е"));
