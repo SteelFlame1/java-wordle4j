@@ -14,7 +14,7 @@ public class WordleDictionary {
 
     public WordleDictionary(List<String> words) {
         if (words == null || words.isEmpty()) {
-            throw new IllegalArgumentException("Словарь не может быть пустым или null");
+            throw new WordleStartupException("Словарь не может быть пустым или null");
         }
 
         this.words = words;

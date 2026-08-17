@@ -17,7 +17,7 @@ import java.util.Map;
  */
 public class WordleGame {
 
-
+    public static final int WORD_LENGTH = 5;
     private String answer;
 
     private int steps;
@@ -38,17 +38,17 @@ public class WordleGame {
     }
 
     public String coincidence(String guess) {
-        if (guess == null || guess.length() != 5) {
-            throw new IllegalArgumentException("Слово должно состоять из 5 букв!");
+        if (guess == null || guess.length() != WORD_LENGTH) {
+            throw new IllegalArgumentException("Слово должно состоять из " + WORD_LENGTH + " букв!");
         }
         if (!dictionary.isValidWord(guess)) {
             throw new IllegalArgumentException("Такого слова нет в словаре");
         }
         steps++;
 
-        char[] result = new char[5];
+        char[] result = new char[WORD_LENGTH];
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < WORD_LENGTH; i++) {
             if (guess.charAt(i) == answer.charAt(i)) {
                 result[i] = '+';
             }
@@ -57,7 +57,7 @@ public class WordleGame {
 
         Map<Character, Integer> remainingLetters = new HashMap<>();
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < WORD_LENGTH; i++) {
             if (result[i] != '+') {
                 char letter = answer.charAt(i);
                 remainingLetters.put(letter, remainingLetters.getOrDefault(letter, 0) + 1);
@@ -65,7 +65,7 @@ public class WordleGame {
         }
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < WORD_LENGTH; i++) {
             if (result[i] == '+') {
                 continue;
             }
