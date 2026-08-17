@@ -47,10 +47,6 @@ public class Wordle {
         while (attempts < maxAttempts) {
             System.out.println("Твой ход (попытка " + (attempts + 1) + "/" + maxAttempts + "): ");
             String input = scanner.nextLine().trim().toLowerCase();
-            if (!dictionary.isValidWord(input)) {
-                System.out.println("Такого слова нет в словаре!");
-                continue;
-            }
             try {
                 String result = game.coincidence(input);
                 System.out.println("Результат: " + result);
@@ -60,9 +56,8 @@ public class Wordle {
                     break;
                 }
                 attempts++;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Ошибка хода: " + e.getMessage());
-                continue;
+            } catch (InvalidWordLengthException | UnknownWordException e) {
+                System.out.println("Ошибка: " + e.getMessage());
             }
 
 

@@ -30,7 +30,7 @@ public class WordleGame {
 
     public WordleGame(WordleDictionary dictionary) {
         if (dictionary == null) {
-            throw new IllegalArgumentException("Словарь не может быть null");
+            throw new WordleStartupException("Словарь не может быть null");
         }
         this.dictionary = dictionary;
         this.answer = dictionary.getRandomWord();
@@ -39,10 +39,10 @@ public class WordleGame {
 
     public String coincidence(String guess) {
         if (guess == null || guess.length() != WORD_LENGTH) {
-            throw new IllegalArgumentException("Слово должно состоять из " + WORD_LENGTH + " букв!");
+            throw new InvalidWordLengthException("Слово должно состоять из " + WORD_LENGTH + " букв!");
         }
         if (!dictionary.isValidWord(guess)) {
-            throw new IllegalArgumentException("Такого слова нет в словаре");
+            throw new UnknownWordException("Такого слова нет в словаре");
         }
         steps++;
 
