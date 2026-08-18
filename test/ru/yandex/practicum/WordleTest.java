@@ -46,7 +46,7 @@ class WordleTest {
     }
 
     @Test
-    public void testCoincidence_ReturnsAllPlus_WhenWordIsGuessed() {
+    public void testCoincidence_ReturnsAllPlus_WhenWordIsGuessed() throws InvalidWordLengthException {
         List<String> words = Arrays.asList("школа", "арбуз", "время", "кошка");
         WordleDictionary dictionary = new WordleDictionary(words);
 
@@ -65,7 +65,7 @@ class WordleTest {
     }
 
     @Test
-    public void testCoincidence_ReturnsAllMinus_WhenWordIsNotGuessed() {
+    public void testCoincidence_ReturnsAllMinus_WhenWordIsNotGuessed() throws InvalidWordLengthException {
         List<String> words = Arrays.asList("шишка", "время");
         WordleDictionary dictionary = new WordleDictionary(words);
 
