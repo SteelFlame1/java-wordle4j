@@ -37,7 +37,7 @@ public class WordleGame {
         this.steps = 0;
     }
 
-    public String coincidence(String guess) {
+    public String coincidence(String guess) throws InvalidWordLengthException, UnknownWordException  {
         if (guess == null || guess.length() != WORD_LENGTH) {
             throw new InvalidWordLengthException("Слово должно состоять из " + WORD_LENGTH + " букв!");
         }

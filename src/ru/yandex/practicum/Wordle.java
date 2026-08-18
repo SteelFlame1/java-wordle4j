@@ -56,7 +56,7 @@ public class Wordle {
                     break;
                 }
                 attempts++;
-            } catch (InvalidWordLengthException | UnknownWordException e) {
+            } catch (UnknownWordException | InvalidWordLengthException e) {
                 System.out.println("Ошибка: " + e.getMessage());
             }
 
